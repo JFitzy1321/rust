@@ -1,6 +1,6 @@
 // Path to Material: file:///<HOME DIR>/.rustup/toolchains/stable-x86_64-pc-windows-msvc/share/doc/rust/html/book/ch06-03-if-let.html
 
-use std::io::{stdin, stdout, Write};
+use std::io::{self, Write};
 
 pub fn main() {
     let input: Option<i32> = get_input();
@@ -15,11 +15,10 @@ pub fn main() {
 
 fn get_input() -> Option<i32> {
     print!("Enter a number between 1 and 100: ");
-    stdout().flush().unwrap();
+    io::stdout().flush().unwrap();
 
     let mut user_input = String::new();
-
-    stdin().read_line(&mut user_input).unwrap();
+    io::stdin().read_line(&mut user_input).unwrap();
 
     match user_input.trim().parse::<i32>() {
         Ok(num) => Some(num),

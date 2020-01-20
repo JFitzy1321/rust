@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 // mod enum_examples;
 use std::error::Error;
 

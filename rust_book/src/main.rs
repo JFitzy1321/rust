@@ -5,23 +5,25 @@ use std::error::Error;
 
 mod lib;
 
-// use bin::control_flow;
-// use bin::fibonacci;
-// use bin::functions;
-// use bin::guessing_game;
-use lib::if_let;
-// use bin::matching_examples;
-// use bin::options_examples;
-// use bin::ownership;
-// use bin::slice_example;
-// use bin::struct_examples;
-// use bin::variables;
+// use lib::control_flow;
+// use lib::fibonacci;
+// use lib::functions;
+// use lib::guessing_game;
+// use lib::if_let;
+// use lib::matching_examples;
+// use lib::options_examples;
+// use lib::ownership;
+// use lib::slice_example;
+// use lib::struct_examples;
+// use lib::variables;
+use lib::collections::vector_examples;
 
 fn main() -> Result<(), Box<dyn Error>> {
     // enum_examples::main();
     // enum_examples::main();
     // control_flow::main();
     // matching_examples::main();
-    if_let::main();
+    // if_let::main();
+    vector_examples::main();
     Ok(())
 }

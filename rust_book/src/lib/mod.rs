@@ -1,3 +1,4 @@
+pub mod collections;
 pub mod control_flow;
 pub mod enum_examples;
 pub mod fibonacci;

@@ -2,8 +2,8 @@
 // mod [file_name]
 // then call the function with
 // file_name::function();
-pub fn main_func() {
-    let x = 21; // x can note be change because it is not mutable by default
+pub fn main() {
+    let x = 21; // x can not be change because it is not mutable by default
 
     print_num(&x); // <- this creates a "read only pointer (or reference)" to x"
 

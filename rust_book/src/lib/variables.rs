@@ -1,7 +1,7 @@
 //variables.rs
 //learning about rust from the rust book [ rustup doc --book ]
 
-pub fn main_func() {
+pub fn run() {
     // let x = 13;
     // print_stuff(format!("The value of non-mutable x is {}", x));
     // let x = 19;

@@ -6,7 +6,6 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io::{stdin, stdout, Write};
 
-
 pub fn main() {
     println!("Number Guessing Game written in Rust!!\n");
 

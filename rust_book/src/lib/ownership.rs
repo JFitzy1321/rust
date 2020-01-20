@@ -54,7 +54,7 @@
 //     some_string.push_str(", world");
 // }
 
-pub fn main() {
+pub fn run() {
     let mut s = "hello".to_string();
 
     let r1 = &s;

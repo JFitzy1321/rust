@@ -1,17 +1,19 @@
 // mod enum_examples;
 use std::error::Error;
 
-//mod control_flow;
-// mod fibonacci;
-// mod functions;
-// mod guessing_game;
-// mod options_examples;
-// mod ownership;
-// mod slice_example;
-// mod struct_examples;
-// mod variables;
-// mod matching_examples;
-mod if_let;
+mod lib;
+
+// use bin::control_flow;
+// use bin::fibonacci;
+// use bin::functions;
+// use bin::guessing_game;
+use lib::if_let;
+// use bin::matching_examples;
+// use bin::options_examples;
+// use bin::ownership;
+// use bin::slice_example;
+// use bin::struct_examples;
+// use bin::variables;
 
 fn main() -> Result<(), Box<dyn Error>> {
     // enum_examples::main();

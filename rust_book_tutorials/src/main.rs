@@ -42,7 +42,7 @@ fn main() {
 //                 }
 //             };
 //             println!("You guessed {}", guess);
-//             match guess.cmp(&secret_num) {
+//             match guSess.cmp(&secret_num) {
 //                 Ordering::Less => println!("Too small!"),
 //                 Ordering::Greater => println!("Too big!"),
 //                 Ordering::Equal => {
@@ -77,9 +77,9 @@ mod chapter_3 {
     }
 
     pub fn out_of_bounds_array() {
-        let numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let num_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         let index = 20;
 
-        println!("The {} element is: {}", index, numArray[index]);
+        println!("The {} element is: {}", index, num_array[index]);
     }
 }

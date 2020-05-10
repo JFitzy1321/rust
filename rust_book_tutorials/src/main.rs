@@ -3,11 +3,14 @@
 fn main() {
     // println!("Hello, cargo! Again...");
     // guessing_game::main();
-    println!("Chapter 3: Variables!");
-    chapter_3::variables();
+    // println!("Chapter 3: Variables!");
+    // chapter_3::variables();
 
-    println!("Chapter 3: Shadowing!");
-    chapter_3::shadowing();
+    // println!("Chapter 3: Shadowing!");
+    // chapter_3::shadowing();
+
+    println!("Chapter 3: Array indexing");
+    chapter_3::out_of_bounds_array();
 }
 
 // // Chapter 2 : Guessing Game
@@ -71,5 +74,12 @@ mod chapter_3 {
         println!("{}", text);
         let text = 32_876;
         println!("{}", text);
+    }
+
+    pub fn out_of_bounds_array() {
+        let numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let index = 20;
+
+        println!("The {} element is: {}", index, numArray[index]);
     }
 }

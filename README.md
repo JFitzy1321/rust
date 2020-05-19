@@ -1,5 +1,8 @@
 # Learning Rust Repository
 
-This repo is a collection of the various rust tutorials and learning projects I've worked on / through.
+A remote repo for me to store junk Rust code from Tutorials, or anything not worthy  
+enough to create a separate repo.
 
-Do what you will at your own risk, this repo is not "maintained," just a place to keep my junk
+This is not a crate, nor a usable library.
+
+Clone at your own risk!

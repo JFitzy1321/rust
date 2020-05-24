@@ -1,13 +1,13 @@
 use std::io::{stdin, stdout, Write};
 
 fn main() {
-    print!("Please enter a number: ");
+    print!("Please enter a positive whole number: ");
     let _ = stdout().flush();
 
     let mut input_num = String::new();
     stdin()
         .read_line(&mut input_num)
-        .expect("Something went wrong reading you input!");
+        .expect("Something went wrong reading your input!");
     let input_num: u32 = input_num
         .trim()
         .parse()

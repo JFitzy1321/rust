@@ -113,3 +113,7 @@ mod chapter_3 {
         println!("BLAST OFF!!!");
     }
 }
+
+mod chapter_4 {
+    pub fn main() {}
+}

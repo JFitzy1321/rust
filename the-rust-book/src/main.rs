@@ -1,11 +1,12 @@
 fn main() {
-    // println!("Hello, cargo! Again...");
-    // guessing_game::main();
-    chapter_3::main();
+//     println!("Hello, cargo! Again...");
+//     chapter_2_game::main();
+//     chapter_3::main();
+    chapter_4::main();
 }
 
-// // Chapter 2 : Guessing Game
-// mod guessing_game {
+// /// Chapter 2: Guessing Game
+// mod chapter_2_game {
 //     use rand::Rng;
 //     use std::cmp::Ordering;
 //     use std::io::Write;
@@ -50,70 +51,72 @@ fn main() {
 //     }
 // }
 
-// Common Programming Concepts
-mod chapter_3 {
-    pub fn main() {
-        // println!("Chapter 3: Variables!");
-        // variables();
+// /// Chapter 3: Common Programming Concepts
+// mod chapter_3 {
+//     pub fn main() {
+//         println!("Chapter 3: Variables!");
+//         variables();
 
-        // println!("Chapter 3: Shadowing!");
-        // shadowing();
+//         println!("Chapter 3: Shadowing!");
+//         shadowing();
 
-        // println!("Chapter 3: Array indexing");
-        // out_of_bounds_array();
-        // let num = 43;
-        // let num_type = ternary_num_type(&num);
-        // println!("Number is {}", num_type);
-        for_loop_iterator();
-        for_range();
-    }
-    // pub fn variables() {
-    //     let x = 5;
-    //     println!("X is: {}", x);
-    //     let x = 6;
-    //     println!("X is now {} after shadowing!", x);
-    //     const MAX_INT: u32 = 100_000;
-    // }
+//         println!("Chapter 3: Array indexing");
+//         out_of_bounds_array();
+//         let num = 43;
+//         let num_type = ternary_num_type(&num);
+//         println!("Number is {}", num_type);
+//         for_loop_iterator();
+//         for_range();
+//     }
+//     pub fn variables() {
+//         let x = 5;
+//         println!("X is: {}", x);
+//         let x = 6;
+//         println!("X is now {} after shadowing!", x);
+//         const MAX_INT: u32 = 100_000;
+//     }
 
-    // pub fn shadowing() {
-    //     let text = "I am some text";
-    //     println!("{}", text);
-    //     let text = 32_876;
-    //     println!("{}", text);
-    // }
+//     pub fn shadowing() {
+//         let text = "I am some text";
+//         println!("{}", text);
+//         let text = 32_876;
+//         println!("{}", text);
+//     }
 
-    // pub fn out_of_bounds_array() {
-    //     let num_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    //     let index = 20;
+//     pub fn out_of_bounds_array() {
+//         let num_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//         let index = 20;
 
-    //     println!("The {} element is: {}", index, num_array[index]);
-    // }
+//         println!("The {} element is: {}", index, num_array[index]);
+//     }
 
-    // pub fn ternary_num_type<'a>(num: &'a u32) -> &'a str {
-    //     // how todo a ternary operator in rust
-    //     if num % 2 == 0 {
-    //         "even"
-    //     } else {
-    //         "odd "
-    //     }
-    // }
+//     pub fn ternary_num_type<'a>(num: &'a u32) -> &'a str {
+//         // how todo a ternary operator in rust
+//         if num % 2 == 0 {
+//             "even"
+//         } else {
+//             "odd "
+//         }
+//     }
 
-    fn for_loop_iterator() {
-        let a = [10, 20, 30, 40, 50];
+//     fn for_loop_iterator() {
+//         let a = [10, 20, 30, 40, 50];
 
-        for elem in a.iter() {
-            println!("{}", elem);
-        }
-    }
+//         for elem in a.iter() {
+//             println!("{}", elem);
+//         }
+//     }
 
-    fn for_range() {
-        for num in (1..5).rev() {
-            println!("{}!", num);
-        }
-        println!("BLAST OFF!!!");
-    }
-}
-
+//     fn for_range() {
+//         for num in (1..5).rev() {
+//             println!("{}!", num);
+//         }
+//         println!("BLAST OFF!!!");
+//     }
+// }
+/// Chapter 4: Understanding Ownership
 mod chapter_4 {
-    pub fn main() {}
+    pub fn main() {
+        let something = String::from("Hello Stack Allocated Types");
+    }
 }

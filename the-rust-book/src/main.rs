@@ -118,5 +118,6 @@ fn main() {
 mod chapter_4 {
     pub fn main() {
         let something = String::from("Hello Stack Allocated Types");
+        let a: Vec<f64> = (0..100).map(|n| n as f64).collect();
     }
 }

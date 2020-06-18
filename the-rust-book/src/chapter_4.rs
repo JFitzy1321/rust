@@ -32,18 +32,23 @@ pub fn main() {
 // }
 
 fn main_str_slice() {
+    use std::io::{stdin, stdout, Write};
+
+    print!("Please enter a setence: ");
+    let _ = stdout().flush();
+
     let mut s = String::new();
+    if let Err(err) = stdin().read_line(&mut s) {
+        eprintln!("Error: Something went wrong parsing text!\n{:?}", err);
+        std::process::exit(1);
+    }
+
     match first_word(&s) {
         Some(s) => println!("The first word in the string is: {}", s),
         None => println!("No word found in string!"),
     };
-
-    s.clear();
 }
-fn first_word(s: &String) -> Option<&str> {
-    if let Some(s) = s.trim().split_whitespace().collect::<Vec<&str>>().first() {
-        Some(s)
-    } else {
-        None
-    }
+
+fn first_word(s: &str) -> Option<&str> {
+    s.split_whitespace().next()
 }

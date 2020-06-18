@@ -10,7 +10,7 @@ fn main() {
         std::process::exit(1);
     }
 
-    let input_num = match input_num.trim().parse::<u32>() {
+    let input_num: u32 = match input_num.trim().parse() {
         Ok(n) => n,
         Err(err) => {
             eprintln!("error: Please enter a positive whole number!\n{:?}", err);

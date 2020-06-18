@@ -5,15 +5,15 @@ fn main() {
     let _ = stdout().flush();
 
     let mut input_num = String::new();
-    if let Err(_) = stdin().read_line(&mut input_num) {
-        eprintln!("error: Something went wrong parsing your input!");
+    if let Err(err) = stdin().read_line(&mut input_num) {
+        eprintln!("error: Something went wrong parsing your input!\n{:?}", err);
         std::process::exit(1);
     }
 
     let input_num = match input_num.trim().parse::<u32>() {
         Ok(n) => n,
-        Err(_) => {
-            eprintln!("error: Please enter a positive whole number!");
+        Err(err) => {
+            eprintln!("error: Please enter a positive whole number!\n{:?}", err);
             std::process::exit(1);
         }
     };

@@ -5,13 +5,18 @@ fn main() {
     let _ = stdout().flush();
 
     let mut input_num = String::new();
-    stdin()
-        .read_line(&mut input_num)
-        .expect("Something went wrong reading your input!");
-    let input_num: u32 = input_num
-        .trim()
-        .parse()
-        .expect("Please enter a positive whole number!");
+    if let Err(_) = stdin().read_line(&mut input_num) {
+        eprintln!("error: Something went wrong parsing your input!");
+        std::process::exit(1);
+    }
+
+    let input_num = match input_num.trim().parse::<u32>() {
+        Ok(n) => n,
+        Err(_) => {
+            eprintln!("error: Please enter a positive whole number!");
+            std::process::exit(1);
+        }
+    };
 
     println!(
         "The {} number of the Fibonacci Sequence is: {}",
@@ -21,11 +26,12 @@ fn main() {
 }
 
 fn fib(input: &u32) -> u32 {
+    let num = *input;
     // Get the value of input by dereference
-    if *input == 0 || *input == 1 {
-        *input
+    if num == 0 || num == 1 {
+        num
     } else {
         // Need to make nth a reference again after calculation
-        fib(&(*input - 1)) + fib(&(*input - 2))
+        fib(&(num - 1)) + fib(&(num - 2))
     }
 }

@@ -1,3 +1,8 @@
+/// HashSet Sandbox
+/// I had to implement a HashSet at work recently.
+/// I was curious about how to implement a HashSet
+/// for an arbitrary object.
+use std::collections::HashSet;
 use uuid::Uuid;
 
 #[derive(Hash, Debug, PartialEq, Eq)]
@@ -14,8 +19,6 @@ pub struct Org {
 // }
 
 pub fn main() {
-    use std::collections::HashSet;
-
     let same_org = Org {
         id: Uuid::new_v4(),
         hierarchy: "1/2/3".to_string(),

@@ -51,20 +51,84 @@
 //     }
 // }
 
+#[derive(Copy, Clone, Debug, Hash)]
+pub enum UsState {
+    Alabama,
+    Alaska,
+    Arizona,
+    Arkansas,
+    California,
+    Colorado,
+    Conneticut,
+    Delaware,
+    Florida,
+    Gerogia,
+    Idaho,
+    Illinois,
+    Indiana,
+    Iowa,
+    Kansas,
+    Kentucky,
+    Louisiana,
+    Maine,
+    Maryland,
+    Massachusetts,
+    Michigan,
+    Minnesota,
+    Mississippi,
+    Missouri,
+    Montana,
+    NorthCarolina,
+    NorthDakota,
+    Nebraska,
+    Nevada,
+    NewHemshire,
+    NewJersey,
+    NewMexico,
+    NewYork,
+    Ohio,
+    Oklahoma,
+    Orgeon,
+    Pennsylvania,
+    RhodeIsland,
+    SouthCarolina,
+    SouthDakota,
+    Tennesse,
+    Texas,
+    Utah,
+    Vermont,
+    Virginia,
+    Washington,
+    WestVirginia,
+    Wisconsin,
+    Wyoming,
+}
+
+#[derive(Copy, Clone, Debug, Hash)]
 pub enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter,
+    Quarter(UsState),
 }
 
 impl Coin {
     pub fn value(&self) -> u8 {
-        match self {
-            Penny => 1,
-            Nickel => 5,
-            Dime => 10,
-            Quarter => 25,
+        match *self {
+            Coin::Penny => 1,
+            Coin::Nickel => 5,
+            Coin::Dime => 10,
+            Coin::Quarter(ref state) => {
+                println!("State quarter from {:?}", state);
+                25
+            }
+        }
+    }
+
+    pub fn get_state(&self) -> Option<&UsState> {
+        match *self {
+            Coin::Quarter(ref state) => Some(state),
+            _ => None,
         }
     }
 }

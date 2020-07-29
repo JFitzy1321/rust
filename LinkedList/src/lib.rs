@@ -1,9 +1,7 @@
-use core::ptr::NonNull;
-
 pub struct LinkedList<T> {
-    head: Option<NonNull<Node<T>>>,
-    tail: Option<NonNull<Node<T>>>,
-    size: usize,
+    head: Option<Node<T>>,
+    tail: Option<Node<T>>,
+    len: usize,
 }
 
 impl<T> LinkedList<Node<T>> {
@@ -12,8 +10,8 @@ impl<T> LinkedList<Node<T>> {
 
 pub struct Node<T> {
     item: T,
-    next: Option<NonNull<Node<T>>>,
-    prev: Option<NonNull<Node<T>>>,
+    next: Option<Box<Node<T>>>,
+    prev: Option<Box<Node<T>>>,
 }
 
 impl<T> Node<T> {
@@ -24,8 +22,23 @@ impl<T> Node<T> {
             item: item,
         }
     }
-    pub fn next(&self) -> Option<Self> {
-        self.Next
+}
+
+impl<T> LinkedList<T> {
+    pub fn new() -> Self {
+        LinkedList {
+            head: None,
+            tail: None,
+            len: 0,
+        }
+    }
+
+    pub fn new_with(item: T) -> Self {
+        LinkedList {
+            head: Some(Box::new(Node::new(item))),
+            tail: Some(Box::new(elem)),
+            len: 1,
+        }
     }
 }
 

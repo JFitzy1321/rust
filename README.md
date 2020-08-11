@@ -1,7 +1,8 @@
-# Mono Rust Tutorial Repository
+# "Learning Rust" Tutorial Repository
 
-A repo for me to store Rust code from Tutorials, or anything I deam note worthy, or want to save for later  
-that I can't justify creating a separate repo.
+Mono repo for rust tutorials and practice code. 
+
+Tracking my time through "The Rust Book" and the "Rust By Example Book" via issues. Each chapter will have it's own "issue" to track progress.
 
 This is not a usable crate, library, or binaries. Do not expect working builds.
 

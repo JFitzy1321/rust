@@ -16,5 +16,5 @@ fn main() {
     // }
 
     chapter_2::guessing_game::main();
-    let x = katas::descending_ints::main(123);
+    let _ = katas::descending_ints::main(123);
 }

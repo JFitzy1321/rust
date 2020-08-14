@@ -1,13 +1,9 @@
 [package]
-name = "pyext-myrustlib"
+name = "RustyPython"
 version = "0.1.0"
-authors = ["Joey Bagels <jfitzy1321@protonmail.com>"]
+authors = ["Joe Fitzgibbons <jfitzy1321@protonmail.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[lib]
-
-
 [dependencies]
-pyo3 = "0.8.4"

@@ -1,3 +1,5 @@
+#[allow(dead_code)]
+
 // Chapter 4: Understanding Ownership
 pub fn main() {
     // let something = String::from("Hello Stack Allocated Types");

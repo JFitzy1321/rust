@@ -1,3 +1,5 @@
+#[allow(dead_code)]
+#[allow(unused_variables)]
 struct User {
     username: String,
     email: String,
@@ -15,10 +17,10 @@ impl User {
         }
     }
 }
-
+#[allow(dead_code)]
+#[allow(unused_variables)]
 pub fn main() {
     let user1 = User::new("someusername".to_string(), "someemail@com".to_string());
-
     // Struct Update Syntax
     let user2 = User {
         email: "anotheremail@com".to_string(),
@@ -38,7 +40,8 @@ struct Rectangle {
     width: u32,
     height: u32,
 }
-
+#[allow(unused_variables)]
+#[allow(dead_code)]
 impl Rectangle {
     pub fn new(width: u32, height: u32) -> Rectangle {
         Rectangle { width, height }

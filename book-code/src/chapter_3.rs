@@ -1,3 +1,5 @@
+#[allow(dead_code)]
+
 /// Chapter 3: Common Programming Concepts
 pub fn main() {
     println!("Chapter 3: Variables!");

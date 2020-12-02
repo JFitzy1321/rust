@@ -1,10 +1,12 @@
+#[allow(dead_code)]
 #[derive(Debug)]
-enum SpreadSheetCell {
+pub enum SpreadSheetCell {
     Int(i32),
     Float(f32),
     Text(String),
 }
 
+#[allow(dead_code)]
 pub fn main() {
     // Initialization without any values, must specify type!
     //let v: Vec<i32> = Vec::new();
@@ -16,7 +18,7 @@ pub fn main() {
         v.push(7);
         // v.push("Hello"); // error, not the same types
 
-        //S let outofbounds = &v[10]; // will throw runtime error
+        //S let out_of_bounds = &v[10]; // will throw runtime error
 
         // match v.get(10) {
         //     Some(t) => println!("The 11th element is: {}", t),

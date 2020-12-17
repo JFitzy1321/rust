@@ -7,15 +7,19 @@ pub enum BTNode<T> {
     },
 }
 
-impl<T> BTNode<T> where T: std::ops::Add<Output = T> {
+impl<T> BTNode<T>
+where
+    T: std::ops::Add<Output = T>,
+{
     pub fn add<L, R>(left: L, right: R) -> Self
     where
-    L:Into<BTNode<T>>,
-    R: Into<BTNode<T>>, {
-        BTNode::Branch{
+        L: Into<BTNode<T>>,
+        R: Into<BTNode<T>>,
+    {
+        BTNode::Branch {
             left: Box::new(left.into()),
             right: Box::new(right.into()),
-            op: Box::new(|l, r| l + r)
+            op: Box::new(|l, r| l + r),
         }
     }
 }
@@ -34,7 +38,7 @@ impl<T> BTNode<T> {
     pub fn value(self) -> T {
         match self {
             Self::Leaf(t) => t,
-            Self::Branch{left, right, op} => op(left.value(), right.value()),
+            Self::Branch { left, right, op } => op(left.value(), right.value()),
         }
     }
 }
@@ -47,6 +51,6 @@ struct BinaryTree<T> {
 mod tests {
     #[test]
     fn it_works() {
-        let tree = BTNode::add(10, )
+        assert_eq!(2 + 2, 4);
     }
 }

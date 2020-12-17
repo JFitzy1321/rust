@@ -58,11 +58,14 @@ mod tests {
         assert_eq!(list.len, 0);
     }
 
-    #[test]
-    fn push_works() {
-        let mut list = LinkedList::empty();
-        list.push(42);
-        assert_eq!(list.head.unwrap().elem, 42);
+    mod push {
+        use super::*;
+        #[test]
+        fn simple_works() {
+            let mut list = LinkedList::empty();
+            list.push(42);
+            assert_eq!(list.head.unwrap().elem, 42);
+        }
     }
 
     mod len {
@@ -98,6 +101,23 @@ mod tests {
             list.push(42);
             assert_eq!(list.pop(), Some(42));
             assert_eq!(list.pop(), None);
+        }
+    }
+
+    mod peek {
+        use super::*;
+
+        #[test]
+        fn returns_none_when_empty() {
+            let list: LinkedList<u32> = LinkedList::empty();
+            assert_eq!(list.peek(), None);
+        }
+
+        #[test]
+        fn returns_some_ref() {
+            let mut list = LinkedList::empty();
+            list.push(42);
+            assert_eq!(list.peek(), Some(&42));
         }
     }
 }

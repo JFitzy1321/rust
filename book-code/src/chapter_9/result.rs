@@ -27,6 +27,7 @@ use std::io::Read;
 //     });
 // }
 
+#[allow(dead_code)]
 pub fn main() -> Result<String, io::Error> {
     // let f = File::open("hello.txt");
 

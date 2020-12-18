@@ -45,6 +45,19 @@ struct ImportantExcerpt<'a> {
     part: &'a str,
 }
 
+impl ImportantExcerpt<'_> {
+    #[allow(dead_code)]
+    fn level(&self) -> i32 {
+        42
+    }
+
+    #[allow(dead_code)]
+    fn announce_and_return_part(&self, announcement: &str) -> &str {
+        println!("Attention please! : {}", announcement);
+        self.part
+    }
+}
+
 #[allow(dead_code)]
 fn first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
@@ -63,4 +76,18 @@ pub fn main() {
     let _i = ImportantExcerpt {
         part: first_sentence,
     };
+}
+
+use std::fmt::Display;
+#[allow(dead_code)]
+fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+where
+    T: Display,
+{
+    println!("Announcement! {}", ann);
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
 }

@@ -103,7 +103,7 @@ Pick three.";
         }
 
         #[test]
-        fn returns_empty_vec_if_pattern_doesnot_match() {
+        fn returns_empty_vec_if_pattern_does_not_match() {
             let query = ";lkjasdf;kljsadf";
             let contents = "\
             hark.

@@ -100,14 +100,6 @@ mod lib_tests {
         }
     }
 
-    mod run_tests {
-        #[test]
-        #[ignore = "not finished yet, and I'm lazy"]
-        fn run_works() {
-            assert!(false);
-        }
-    }
-
     mod search_tests {
         use super::*;
         #[test]

@@ -70,6 +70,7 @@ fn first_word(s: &str) -> &str {
     &s[..]
 }
 
+#[allow(dead_code)]
 pub fn main() {
     let novel = "Call me Ishmael. Some years ago...";
     let first_sentence = novel.split('.').next().expect("Could not find a '.'");

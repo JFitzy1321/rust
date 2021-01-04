@@ -70,6 +70,7 @@ fn first_word(s: &str) -> &str {
     &s[..]
 }
 
+#[allow(dead_code)]
 pub fn main() {
     let novel = "Call me Ishmael. Some years ago...";
     let first_sentence = novel.split('.').next().expect("Could not find a '.'");
@@ -79,6 +80,7 @@ pub fn main() {
 }
 
 use std::fmt::Display;
+
 #[allow(dead_code)]
 fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
 where

@@ -81,14 +81,43 @@ pub mod section1 {
 
 #[allow(dead_code)]
 pub mod section2 {
+    struct Counter {
+        count: u32,
+    }
+
+    impl Counter {
+        fn new() -> Self {
+            Self { count: 0 }
+        }
+    }
+
+    impl Iterator for Counter {
+        type Item = u32;
+
+        fn next(&mut self) -> Option<Self::Item> {
+            if self.count < 20 {
+                self.count += 1;
+                Some(self.count)
+            } else {
+                None
+            }
+        }
+    }
+
     pub fn main() {
-        let v1 = vec![1, 2, 3];
+        // let v1 = vec![1, 2, 3];
 
-        let v1_iter = v1.iter();
-        println!("{:?}", v1);
+        // let v1_iter = v1.iter();
+        // println!("{:?}", v1);
 
-        for val in v1_iter {
-            println!("Got {}", val);
+        // for val in v1_iter {
+        //     println!("Got {}", val);
+        // }
+
+        let counter = Counter::new();
+
+        for val in counter {
+            println!("{}", val);
         }
     }
 }

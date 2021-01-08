@@ -1,38 +1,45 @@
+#[allow(dead_code)]
 pub mod section1 {
-    use std::collections::HashMap;
-    use std::thread;
+    use core::hash::Hash;
     use std::time::Duration;
+    use std::{collections::HashMap, thread};
+
     // fn simulated_expensive_calculation(intensity: u32) -> u32 {
     //     println!("calculating slowly...");
     //     thread::sleep(Duration::from_secs(2));
     //     intensity
     // }
-    struct Cacher<T>
+
+    struct Cacher<T, K, V>
     where
-        T: Fn(u32) -> u32,
+        T: Fn(&K) -> V,
+        K: Hash + Eq + Clone,
+        V: Clone,
     {
         closure: T,
-        value: HashMap<u32, u32>,
+        values: HashMap<K, V>,
     }
 
-    impl<T> Cacher<T>
+    impl<T, K, V> Cacher<T, K, V>
     where
-        T: Fn(u32) -> u32,
+        T: Fn(&K) -> V,
+        K: Hash + Eq + Clone,
+        V: Clone,
     {
         fn new(closure: T) -> Self {
             Self {
                 closure,
-                value: HashMap::new(),
+                values: HashMap::new(),
             }
         }
 
-        fn value(&mut self, arg: &u32) -> u32 {
-            match self.value.get(arg) {
-                Some(v) => *v,
+        fn value(&mut self, arg: &K) -> V {
+            match self.values.get(arg) {
+                Some(val) => val.clone(),
                 None => {
-                    let v = (self.closure)(*arg);
-                    let _ = self.value.insert(*arg, v);
-                    v
+                    let result = (self.closure)(arg);
+                    let _ = self.values.insert(arg.clone(), result.clone());
+                    result
                 }
             }
         }
@@ -42,7 +49,7 @@ pub mod section1 {
         let mut expensive_result = Cacher::new(|num| {
             println!("calculating slowly... ");
             thread::sleep(Duration::from_secs(2));
-            num
+            *num
         });
         // let expensive_closure = |num| {
         //     println!("calculating slowly...");
@@ -69,5 +76,19 @@ pub mod section1 {
         let simulated_random_number = 7;
 
         generate_workout(&simulated_user_value, &simulated_random_number);
+    }
+}
+
+#[allow(dead_code)]
+pub mod section2 {
+    pub fn main() {
+        let v1 = vec![1, 2, 3];
+
+        let v1_iter = v1.iter();
+        println!("{:?}", v1);
+
+        for val in v1_iter {
+            println!("Got {}", val);
+        }
     }
 }

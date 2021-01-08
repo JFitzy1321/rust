@@ -18,5 +18,7 @@ fn main() {
 
     // chapter_10::generics::main();
     // chapter10::lifetimes::main();
+
     chapter13::section1::main();
+    chapter13::section2::main();
 }

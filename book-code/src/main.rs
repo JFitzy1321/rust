@@ -2,10 +2,10 @@
 //!
 //! By langnostic
 //!
-//!! There is no guarantee of this code working at any point.
+//! ! There is no guarantee of this code working at any point.
 
-// #[allow(dead_code)]
-// // mod guessing_game;
+#[allow(dead_code)]
+// mod guessing_game;
 // mod chapter10;
 // mod chapter13;
 // mod chapter14;

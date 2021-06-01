@@ -1,4 +1,5 @@
 use itertools::Itertools;
+
 pub fn main(x: u64) -> u64 {
     x.to_string()
         .chars()

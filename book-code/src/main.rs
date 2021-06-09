@@ -13,7 +13,8 @@
 // mod chapter9;
 // mod chapter15;
 // mod chapter16;
-mod chapter17;
+// mod chapter17;
+mod chapter18;
 
 fn main() {
     // guessing_game::main();
@@ -21,20 +22,15 @@ fn main() {
     // chapter8::strings::main();
     // chapter8::vectors::main();
     // chapter8::hashmap::main();
-
     // chapter9::panic::main();
     // let _ = chapter9::result::main();
-
     // chapter10::generics::main();
     // chapter10::lifetimes::main();
-
     // chapter13::section1::main();
     // chapter13::section2::main();
-
     // chapter14::add_one(1);
-
     // chapter15::main();
-
     // chapter16::main();
-    chapter17::main();
+    // chapter17::main();
+    chapter18::main();
 }

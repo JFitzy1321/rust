@@ -1,3 +1,5 @@
+mod fibonacci;
+
 fn main() {
-    println!("Hello, world!");
+    fibonacci::main();
 }

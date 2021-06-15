@@ -64,5 +64,5 @@ mod unsafe_rust {
 
     unsafe trait Foo {}
 
-    unsafe impl Foor for i32 {}
+    unsafe impl Foo for i32 {}
 }

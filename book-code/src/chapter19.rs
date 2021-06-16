@@ -1,5 +1,6 @@
 pub fn main() {
     unsafe_rust::main();
+    advanced_traits::main();
 }
 
 mod unsafe_rust {
@@ -65,4 +66,113 @@ mod unsafe_rust {
     unsafe trait Foo {}
 
     unsafe impl Foo for i32 {}
+}
+
+mod advanced_traits {
+    pub trait MyIterator {
+        // Item is an Associated Type.
+        // Anyone implementing this trait must provide
+        // a concrete implementation for Item
+        // i.e. `type Item = i32`
+        type Item;
+
+        fn next(&mut self) -> Option<Self::Item>;
+    }
+
+    // Disambiguation
+    // what happens if your type, or multiple traits, have the same signature?
+
+    trait Pilot {
+        fn fly(&self);
+    }
+
+    trait Wizard {
+        fn fly(&self);
+    }
+
+    struct Human;
+
+    impl Pilot for Human {
+        fn fly(&self) {
+            println!("This is your captain speaking.");
+        }
+    }
+
+    impl Wizard for Human {
+        fn fly(&self) {
+            println!("**Harry Potter Noises start**");
+        }
+    }
+
+    impl Human {
+        fn fly(&self) {
+            println!("You can't fly, puny hooman");
+        }
+    }
+
+    trait Animal {
+        fn baby_name() -> String;
+    }
+
+    struct Dog;
+
+    impl Dog {
+        fn baby_name() -> String {
+            "Spot".to_string()
+        }
+    }
+
+    impl Animal for Dog {
+        fn baby_name() -> String {
+            "puppy".to_string()
+        }
+    }
+
+    // SUPER TRAITS (it's basically inheritance for traits, but don't say that in a rust chat)
+    trait Print: std::fmt::Display {
+        fn outline_print(&self) {
+            let output = self.to_string();
+            let len = output.len();
+            println!("*{}*", " ".repeat(len + 2));
+            println!("* {} *", output);
+            println!("*{}*", " ".repeat(len + 2));
+            println!("{}", "*".repeat(len + 4));
+        }
+    }
+
+    struct Point;
+
+    impl std::fmt::Display for Point {
+        fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+            todo!()
+        }
+    }
+
+    impl Print for Point {}
+
+    // NewType Pattern, a Wrapper around other types.
+    // Wrapper must be a Tuple Struct of desiered type.
+    // Then implement traits on that Wrapper
+    struct MyWrapper(Vec<String>);
+
+    trait Something {}
+
+    impl Something for MyWrapper {}
+
+    pub fn main() {
+        let dude = Human;
+
+        Pilot::fly(&dude);
+        Wizard::fly(&dude);
+        // this will default to the Human impl block
+        dude.fly();
+
+        // calling assoicated functions
+
+        // this one will call Dog::baby_name
+        println!("A baby does is called a {}", Dog::baby_name());
+
+        // Fully Qualified Syntax is needed to call the associated trait function
+        println!("A baby does is called a {}", <Dog as Animal>::baby_name());
+    }
 }

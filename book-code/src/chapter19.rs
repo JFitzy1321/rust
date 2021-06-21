@@ -176,3 +176,51 @@ mod advanced_traits {
         println!("A baby does is called a {}", <Dog as Animal>::baby_name());
     }
 }
+
+mod advanced_types {
+    // / ! means 'never' type, as in never returns.
+    // This is used for things like the continue keyword, loop, and panic! .
+    // These things do not return anything, but is this necessary?
+    // Mainly, the type system and pattern matching.
+    // In a match statement, if we assing the results to a variable, all arms of the match
+    // statement must return the same type of thing. But, what if panic is used in the Error
+    // arm? '!' Will downcast to whatever other type is used, because it doesn't return anything
+    // it can be cast to anything.
+
+    // Sized and ?Sized traits are respectively: For things that have a known size at compile time
+    // and things that have a known or unknown size at compile time.
+    // Generics automatically assumed the Sized trait, so to use dynamic sized types '<T: ?Sized>(t: &T)' is needed.
+    // Also, anthing that is unknown size (?Sized) must be behind a pointer (or reference).
+}
+
+mod advanced_functions_and_closures {
+    fn add_one(x: i32) -> i32 {
+        x + 1
+    }
+
+    // lowercase fn() is a function pointer
+    // uppercase Fn is the Closure Trait
+    fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 {
+        f(arg) + f(arg)
+    }
+
+    // returning a closure
+    fn return_closure() -> Box<dyn Fn(i32) -> i32> {
+        Box::new(|x| x + 1)
+    }
+
+    fn main() {
+        let answer = do_twice(add_one, 5);
+
+        println!("The answer is {}", answer);
+
+        let list_of_numbers = vec![1, 2, 3];
+        // let list_of_strings: Vec<String> = list_of_numbers.iter().map(|i| i.to_string()).collect();
+        let list_of_string: Vec<String> = list_of_numbers.iter().map(ToString::to_string).collect();
+    }
+}
+
+mod macros {
+    // wtf is dat m8ty?
+    // Do more reseach when needed.
+}
